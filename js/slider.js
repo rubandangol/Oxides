@@ -8,12 +8,16 @@ function Slider(){
 	var leftArrow = document.getElementsByClassName('slider-left-wrapper')[0];
 	var rightArrow = document.getElementsByClassName('slider-right-wrapper')[0];
 
-	var imageWidth = 1280; 
+	var imageWidth = document.getElementsByClassName('slider-wrapper')[0].offsetWidth;
+	
+	window.onresize = function(){  
+		imageWidth = document.getElementsByClassName('slider-wrapper')[0].offsetWidth;
+	}
+
+	 
 	var sliderLeftMargin = 0;
 	var animator = new Animator(slider);
 
-		
-		
 	
 		var slide = function(){
 			
@@ -137,15 +141,6 @@ function Slider(){
      					individualInterval = setInterval(slide,2000);
      					highlightPager();
      					changeSlideNumber();
-     				}
-     				else{
-     					/*active = this.id;
-						clearInterval(individualInterval);
-						sliderLeftMargin = ((active-1) * (-imageWidth));
-						animator.finish(sliderLeftMargin);
-						individualInterval = setInterval(slide,2000);
-						highlightPager();
-     					changeSlideNumber();*/
      				}
 					
 	 			});
